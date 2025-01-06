@@ -1,5 +1,6 @@
 package com.empresa.integration.controller;
 
+import com.empresa.integration.model.Address;
 import com.empresa.integration.model.Student;
 import com.empresa.integration.service.IntegrationGateway;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,16 @@ public class IntegrationController {
 
     @PostMapping
     public String processStudentDetails(@RequestBody Student student) {
-        log.info(student.toString());
         return integrationGateway.processStudentDetails(student);
+    }
+
+    @PostMapping("/student")
+    public void processStudentDetails2(@RequestBody Student student) {
+        integrationGateway.process(student);
+    }
+
+    @PostMapping("/address")
+    public void processAddressDetails(@RequestBody Address address) {
+        integrationGateway.process(address);
     }
 }

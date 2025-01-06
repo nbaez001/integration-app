@@ -30,4 +30,12 @@ public class StudentService {
         Message<?> newMessage = MessageBuilder.withPayload(student.toString()).build();
         replyChannel.send(newMessage);
     }
+
+    @ServiceActivator(inputChannel = "student.channel")
+    public void recieveMessage2(Message<?> message) throws MessagingException {
+        System.out.println("##########student.channel##########");
+        System.out.println(message);
+        System.out.println("###################################");
+        System.out.println(message.getPayload());
+    }
 }

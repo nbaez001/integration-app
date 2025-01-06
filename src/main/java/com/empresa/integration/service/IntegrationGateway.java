@@ -13,4 +13,7 @@ public interface IntegrationGateway {
     @Gateway(requestChannel = "integration.student.gateway.channel")
     String processStudentDetails(Student student);
 
+    @Gateway(requestChannel = "router.channel")
+    <T> void process(T student);
+
 }
