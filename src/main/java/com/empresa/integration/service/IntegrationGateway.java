@@ -1,5 +1,6 @@
 package com.empresa.integration.service;
 
+import com.empresa.integration.model.Student;
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.annotation.MessagingGateway;
 
@@ -8,4 +9,8 @@ public interface IntegrationGateway {
 
     @Gateway(requestChannel = "integration.gateway.channel")
     String sendMessage(String message);
+
+    @Gateway(requestChannel = "integration.student.gateway.channel")
+    String processStudentDetails(Student student);
+
 }
