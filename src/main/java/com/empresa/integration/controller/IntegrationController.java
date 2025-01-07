@@ -15,18 +15,8 @@ public class IntegrationController {
     @Autowired
     private IntegrationGateway integrationGateway;
 
-    @GetMapping(value = "{name}")
-    public String getMessageFromIntegrationService(@PathVariable("name") String name) {
-        return integrationGateway.sendMessage(name);
-    }
-
-    @PostMapping
-    public String processStudentDetails(@RequestBody Student student) {
-        return integrationGateway.processStudentDetails(student);
-    }
-
     @PostMapping("/student")
-    public void processStudentDetails2(@RequestBody Student student) {
+    public void processStudentDetails(@RequestBody Student student) {
         integrationGateway.process(student);
     }
 
