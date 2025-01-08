@@ -1,16 +1,22 @@
 package com.empresa.integration.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Student {
+public class Student implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     private String id;
-    private String name;
-    private String school;
+    private String firstName;
+    private String lastName;
+    private String age;
+    private String gender;
 }
